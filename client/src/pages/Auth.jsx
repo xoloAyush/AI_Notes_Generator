@@ -33,7 +33,7 @@ const Auth = () => {
             <motion.header
                 initial={{ opacity: 0, y: -15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5 }}
+                transition={{ duration: 0.7 }}
                 className="
       max-w-7xl mx-auto mt-6
       rounded-2xl
@@ -58,7 +58,7 @@ const Auth = () => {
                 <motion.div
                     initial={{ opacity: 0, x: -60 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.5 }}
+                    transition={{ duration: 0.7 }}
                 >
 
                     <motion.h1
@@ -144,8 +144,21 @@ const Auth = () => {
 function Feature({ icon, title, desc }) {
     return (
         <motion.div
+
+            initial={{ opacity: 0, rotateX: 18, rotateY: -18 }}
+            animate={{ opacity: 1, rotateX: 0, rotateY: 0 }}
             whileHover={{ y: -12, rotateX: 8, rotateY: -8, scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200, damping: 18 }}
+
+            transition={{
+                // Entrance animation (slow)
+                default: { duration: 1.2, ease: "easeOut" },
+
+                // Hover animation (spring + faster)
+                y: { type: "spring", stiffness: 250, damping: 15 },
+                rotateX: { type: "spring", stiffness: 50, damping: 95 },
+                rotateY: { type: "spring", stiffness: 50, damping: 95 },
+                scale: { type: "spring", stiffness: 250, damping: 15 }
+            }}
             className="relative rounded-2xl p-6
                  bg-gradient-to-br from-black/90 via-black/80 to-black/90
                  backdrop-blur-2xl
