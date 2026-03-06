@@ -39,6 +39,10 @@ const Home = () => {
 
                         <motion.p
                             whileHover={{ y: -4 }}
+                            style={{
+                                transform: "translateZ(40px)",
+                                textShadow: "0 18px 40px rgba(0,0,0,0.25)"
+                            }}
                             className="mt-6 text-lg text-gray-600 max-w-lg "
                         >
                             Generate high-quality notes, diagrams and PDFs instantly using AI.
@@ -56,6 +60,7 @@ const Home = () => {
                             whileTap={{
                                 scale: 0.99
                             }}
+
                             className="
                                mt-4 flex items-center gap-3
                               rounded-2xl font-semibold

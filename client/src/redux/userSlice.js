@@ -12,11 +12,16 @@ export const userSlice = createSlice({
         },
         setLoading: (state, action) => {
             state.isLoading = action.payload
+        },
+        updateCredits: (state, action) => {
+            if (state.userData?.user) {
+                state.userData.user.credits = action.payload
+            }
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setUserData, setLoading } = userSlice.actions
+export const { setUserData, setLoading, updateCredits } = userSlice.actions
 
 export default userSlice.reducer

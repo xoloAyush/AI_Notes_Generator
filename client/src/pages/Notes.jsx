@@ -2,8 +2,12 @@ import React from 'react'
 import { motion } from 'motion/react'
 import Navbar from '../components/Navbar'
 import TopicForm from '../components/TopicForm'
+import { useState } from 'react'
 
 const Notes = () => {
+    const [result, setResult] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
     return (
         <div className='min-h-screen overflow-hidden bg-[#f7f4f2] text-black px-8'>
 
@@ -35,9 +39,21 @@ const Notes = () => {
             <Navbar />
 
             <motion.div>
-                <TopicForm />
+                <TopicForm loading={loading} error={error} setError={setError} setResult={setResult} setLoading={setLoading} />
 
             </motion.div>
+
+            {!result && (
+                <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="h-64 rounded-2xl flex flex-col items-center justify-center bg-white/60 backdrop-blur-lg border border-dashed border-gray-300 text-gray-500 shadow-inner"
+                >
+                    <span className="text-4xl mb-3">📘</span>
+                    <p className="text-sm">
+                        Generated notes will appear here
+                    </p>
+                </motion.div>
+            )}
 
         </div>
     )

@@ -5,8 +5,13 @@ configDotenv()
 import connectDB from './utils/connectDB.js'
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
+import notesRouter from "./routes/generate.route.js";
+
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
+// import { run } from './services/gemini.service.js';
+// import { generateGeminiResponse } from './services/gemini.service.js';
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -28,6 +33,18 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+
+app.use("/api/notes", notesRouter);
+
+// (async () => {
+//     const result = await run("Explain AI in simple words");
+//     console.log(result);
+// })();
+
+// (async () => {
+//     const result = await generateGeminiResponse("Explain AI in simple words");
+//     console.log(result);
+// })();
 
 app.listen(PORT, () => {
     console.log(`server runs on ${PORT}`)
