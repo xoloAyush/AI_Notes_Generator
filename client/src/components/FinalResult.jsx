@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import MermaidSetup from './MermaidSetup'
-import RechartSetup from './RechartSetup'
 import Recharts from './Recharts'
 
 import ReactMarkdown from 'react-markdown'
