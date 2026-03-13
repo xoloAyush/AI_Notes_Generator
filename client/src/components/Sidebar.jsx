@@ -1,5 +1,17 @@
 import React from "react";
 
+/**
+ * Render a compact sidebar summarizing subtopics, exam importance, and important questions from a result object.
+ *
+ * @param {Object} result - Data used to populate the sidebar.
+ * @param {Object.<string, string[]>} result.subTopics - Mapping of priority label to an array of topic names.
+ * @param {string} result.importance - Short label or value describing the exam importance.
+ * @param {Object} result.questions - Important questions grouped by type.
+ * @param {string[]} result.questions.short - List of short questions.
+ * @param {string[]} result.questions.long - List of long questions.
+ * @param {string} [result.questions.diagram] - Diagram description or label.
+ * @returns {JSX.Element|null} The sidebar JSX when required fields are present; `null` if input is missing required data.
+ */
 function Sidebar({ result }) {
 
     if (

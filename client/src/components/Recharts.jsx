@@ -9,6 +9,17 @@ import {
     Cell
 } from "recharts";
 
+/**
+ * Render one or more responsive bar charts using Recharts.
+ *
+ * @param {Object[]} charts - Array of chart descriptors to render.
+ * @param {string} charts[].title - Chart title displayed above the chart.
+ * @param {string} charts[].type - Chart type; this component renders charts when set to `"bar"`.
+ * @param {Object[]} charts[].data - Data points for the chart.
+ * @param {string} charts[].data[].name - Label for the x-axis for a data point.
+ * @param {number} charts[].data[].value - Numeric value for a data point used by the bar height.
+ * @returns {JSX.Element|null} A container element with the rendered charts, or `null` if `charts` is falsy or an empty array.
+ */
 function Recharts({ charts }) {
     if (!charts || charts.length === 0) return null;
 
