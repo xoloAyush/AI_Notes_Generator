@@ -39,6 +39,14 @@ const autoFixBadNodes = (diagram) => {
     });
 };
 
+/**
+ * Renders a sanitized Mermaid diagram into a container and updates it whenever the `diagram` prop changes.
+ *
+ * The component sanitizes and normalizes the provided Mermaid source, renders it to SVG, and injects the SVG into a scrollable container. If `diagram` is empty or falsy, the container remains empty.
+ * @param {Object} props
+ * @param {string} props.diagram - Mermaid diagram source text; may be empty or falsy to render no diagram.
+ * @returns {JSX.Element} The component's container element that will hold the rendered Mermaid SVG.
+ */
 function MermaidSetup({ diagram }) {
     const containerRef = useRef(null);
 

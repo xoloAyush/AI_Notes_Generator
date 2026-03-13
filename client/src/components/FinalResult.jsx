@@ -40,6 +40,13 @@ const markDownComponent = {
 
 }
 
+/**
+ * Render a comprehensive set of exam notes, diagrams, charts, and revision points based on a structured result object.
+ *
+ * @param {object} props
+ * @param {object} props.result - The data used to render sections. Required fields: `subTopics` (object) and `questions` (object with `short` and `long` arrays). Optional fields: `notes` (markdown string), `revisionPoints` (array), `diagram` (object with `data`), and `charts` (array).
+ * @returns {JSX.Element|null} A React element containing the rendered notes UI, or `null` when required `result` fields are missing.
+ */
 function FinalResult({ result }) {
 
     const [quickRevision, setQuickRevision] = useState(false)
@@ -199,6 +206,15 @@ function FinalResult({ result }) {
     )
 }
 
+/**
+ * Render a themed section header with an icon and title.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.icon - Icon or emoji displayed to the left of the title.
+ * @param {string} props.title - Header text to display.
+ * @param {'indigo'|'purple'|'blue'|'green'|'cyan'|'rose'} props.color - Theme name that selects the gradient and text color.
+ * @returns {JSX.Element} The section header element with applied color theme.
+ */
 function SectionHeader({ icon, title, color }) {
 
     const colors = {

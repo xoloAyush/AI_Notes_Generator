@@ -1,6 +1,16 @@
 import React from "react";
 import { BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Bar } from "recharts";
 
+/**
+ * Render one or more Recharts charts from an array of chart descriptors.
+ *
+ * @param {{charts: Array<{type: "bar" | "line" | "pie", title: string, data: Array<{name: string, value: number}>}>}} props
+ *   props.charts - An array of chart descriptor objects. Each descriptor must include:
+ *     - type: The chart type to render; one of "bar", "line", or "pie".
+ *     - title: A string title displayed above the chart.
+ *     - data: An array of data points for the chart where each point has a `name` and a numeric `value`.
+ * @returns {JSX.Element|null} A React element containing the rendered charts, or `null` when `charts` is empty or not provided.
+ */
 function RechartSetup({ charts }) {
     if (!charts || charts.length === 0) return null;
 
